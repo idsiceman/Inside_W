@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
+import android.support.v4.app.Fragment;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -49,10 +49,25 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
+
+        Fragment objFragment = null;
+
+        switch (position) {
+            case 0:
+                objFragment = new menu1_Fragment();
+                break;
+            case 1:
+                objFragment = new menu2_Fragment();
+                break;
+            case 2:
+                objFragment = new menu3_Fragment();
+                break;
+        }
+
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                .replace(R.id.container, objFragment)
                 .commit();
     }
 
