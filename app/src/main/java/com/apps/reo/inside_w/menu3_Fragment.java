@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
+/*
  * Created by reo on 07.01.2015.
  */
 public class menu3_Fragment extends Fragment {
