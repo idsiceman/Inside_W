@@ -2,14 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="#ff000000">
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Baukasten"
-        android:id="@+id/txtmen1"
-        android:textColor="#ffffffff"
-        />
+        android:id="@+id/txtmen1" />
 </RelativeLayout>
