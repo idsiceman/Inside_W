@@ -7,8 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="2"
+        android:text="Baukasten"
         android:id="@+id/txtmen1"
-        android:theme="@android:style/Theme.Holo"
         />
 </RelativeLayout>
