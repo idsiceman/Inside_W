@@ -8,5 +8,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="3"
-        android:id="@+id/txtmen1" />
+        android:id="@+id/txtmen1"
+        android:theme="@android:style/Theme.Holo"
+        />
 </RelativeLayout>
