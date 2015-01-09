@@ -2,15 +2,13 @@
 <resources>
 
     <string name="app_name">InsideWeiz</string>
-    <string name="title_section1">Kategorie</string>
+    <string name="title_section1">In meiner Nähe</string>
     <string name="title_section2">Baukasten</string>
-    <string name="title_section3">Verlauf</string>
+    <string name="title_section3">Kategorie</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_example">Example action</string>
-    <string name="action_settings">Einstellungen</string>
+    <string name="action_settings">Info</string>
     <string name="title_activity_splash">Splash</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu">3</string>
 
 </resources>
