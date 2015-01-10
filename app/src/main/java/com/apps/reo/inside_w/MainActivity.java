@@ -1,6 +1,9 @@
 package com.apps.reo.inside_w;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -12,28 +15,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-
-
+import android.widget.ImageView;
+import android.widget.Toast;
 
 
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    public void alertinfo(View view){
 
-       MyAlert myAlert=new MyAlert();
-       myAlert.show(getFragmentManager(),"Hello World");
-    }
 
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
-     */
+
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
-    /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
-     */
     private CharSequence mTitle;
 
     @Override
@@ -45,7 +39,6 @@ public class MainActivity extends ActionBarActivity
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
 
-        // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
@@ -68,7 +61,6 @@ public class MainActivity extends ActionBarActivity
                 break;
         }
 
-        // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, objFragment)
@@ -112,12 +104,34 @@ public class MainActivity extends ActionBarActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                final MediaPlayer music = MediaPlayer.create(this, R.raw.pinkybrain);
+                music.start();
+                LayoutInflater inflater = getLayoutInflater();
+                View infodialog = inflater.inflate(R.layout.infodialog, null);
+                AlertDialog.Builder infomsg = new AlertDialog.Builder(this);
+                infomsg.setView(infodialog);
+                infomsg.setTitle("Info");
+                infomsg.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        music.stop();
+                    }
+                });
+                infomsg.setCancelable(false);
+                infomsg.setInverseBackgroundForced(true);
+
+                infomsg.create().show();
+
+                break;
+
+        }
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -125,20 +139,11 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();

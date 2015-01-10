@@ -10,5 +10,6 @@
     <string name="action_settings">Info</string>
     <string name="title_activity_splash">Splash</string>
     <string name="menu">3</string>
+    <string name="copyright">Copyright by PinkyandBrain</string>
 
 </resources>
