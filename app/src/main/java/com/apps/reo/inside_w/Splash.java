@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
-import android.view.Menu;
-import android.view.Window;
+
 
 public class Splash extends Activity {
     private static final int SPLASH_DURATION = 4000;
@@ -15,7 +14,7 @@ public class Splash extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView();
 
         startMain = new Handler();
 
