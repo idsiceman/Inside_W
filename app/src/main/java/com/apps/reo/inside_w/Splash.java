@@ -1,58 +1,42 @@
 package com.apps.reo.inside_w;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
-import android.view.MenuItem;
+import android.view.Window;
 
-
-
-public class Splash extends ActionBarActivity {
-
-    private Menu menu;
+public class Splash extends Activity {
+    private static final int SPLASH_DURATION = 4000;
+    private Handler startMain;
+    private boolean isBackButtonPressed;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        int myTimer = 3000;
-        new Handler().postDelayed(new Runnable() {
+        startMain = new Handler();
+
+        startMain.postDelayed(new Runnable() {
             @Override
-            public void run() {
-                Intent i = new Intent(Splash.this, MainActivity.class);
-                startActivity(i);
+            public void run()  {
                 finish();
+
+                if (!isBackButtonPressed) {
+                    Intent intent =
+                            new Intent(Splash.this, MainActivity.class);
+                    Splash.this.startActivity(intent);
+                }
             }
-        },myTimer);
-
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        this.menu = menu;
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_splash, menu);
-        return true;
+        }, SPLASH_DURATION);
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onBackPressed() {
+        isBackButtonPressed = true;
+        super.onBackPressed();
     }
-
 
 }
