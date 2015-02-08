@@ -8,14 +8,15 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listView"
+        android:id="@+id/lstbaukasten"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/btnchoose" />
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_above="@+id/btnchoose"
+        android:choiceMode="multipleChoiceModal" />
 
     <Button
         android:layout_width="wrap_content"
